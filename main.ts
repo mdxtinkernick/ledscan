@@ -1,7 +1,7 @@
 let dot_pos2 = 0
 let dot_pos = 0
 let time_between_changes = 50
-let time_to_change = time_between_changes
+let time_to_change = 0
 let change = 1
 let time_between_changes_2 = 80
 let time_to_change_2 = time_between_changes_2
@@ -26,6 +26,7 @@ basic.forever(function () {
         time_to_change_2 = control.millis() + time_between_changes_2
         strip.setPixelColor(dot_pos2, neopixel.colors(NeoPixelColors.Black))
         dot_pos2 += change2
+        serial.writeLine("" + (dot_pos2))
         strip.setPixelColor(dot_pos2, neopixel.colors(NeoPixelColors.Green))
         strip.show()
         if (dot_pos2 == leds) {
